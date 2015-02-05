@@ -3,7 +3,7 @@
 ### Requirements:
 
 * [Unity](http://unity3d.com/unity) 4.6.x
-* [RUIS for Unity](http://www.ruisystem.net/) 1.07
+* [RUIS for Unity](http://www.ruisystem.net/) (1.07 included)
 
 ### Instructions:
 
