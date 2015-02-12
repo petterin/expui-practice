@@ -50,16 +50,20 @@ public class ScalableSelectable : RUISSelectable {
 			Log("position before: " + transform.position);
 		}
 		if(isScaling || (isSelected && useOnlyMouse)) {
-			float scale = 1;
-			if(useOnlyMouse)
-				scale = (GetDistanceBetweenSelectors() - 5) * 10;
-			else
-				scale = GetDistanceBetweenSelectors() / originalDistanceBetweenSelectors;
+			float scale = this.GetCurrentScale();
 			if(scale > 0) {
 				Log("Scaling with " + scale);
 				transform.localScale = originalScale * scale;
 			}
 		}
+	}
+	
+	private float GetCurrentScale() {
+		// In the debug case just use some scale that is visible and changing
+		if(useOnlyMouse)
+			return (Mathf.Sin(Time.time) + 2) / 2.0f;
+		else
+			return GetDistanceBetweenSelectors() / originalDistanceBetweenSelectors;
 	}
 	
 	private float GetDistanceBetweenSelectors() {
