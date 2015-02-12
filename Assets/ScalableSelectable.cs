@@ -11,11 +11,17 @@ public class ScalableSelectable : RUISSelectable {
 	// Use only the mouse to (poorly) simulate scaling with two wands
 	public bool useOnlyMouse = false;
 	
-	public bool isScaling { 
-		get { 
-			return base.isSelected && scalerSelector != null; 
+	public bool isSelectedWithOne {
+		get {
+			return this.selector_ != null && this.scalerSelector == null;
 		}
 	}
+	
+	/*public new bool isSelected { 
+		get {
+			return this.selector_ != null && this.scalerSelector != null;
+		} 
+	}*/
 	
 	public void Awake() {
 		base.Awake();
@@ -24,7 +30,7 @@ public class ScalableSelectable : RUISSelectable {
 	
 	public override void OnSelection(RUISWandSelector selector) {
 		Log("ScalableSelectable#OnSelection called for " + selector);
-		if(this.selector_ == null) {
+		if(!this.isSelectedWithOne) {
 			this.selector_ = selector;
 		} else {
 			Log("Setting scaler selection and the original distance between the selectors");
@@ -42,14 +48,14 @@ public class ScalableSelectable : RUISSelectable {
 	}
 	
 	protected override void UpdateTransform(bool safePhysics) {
-		if(isSelected) {
+		if(this.isSelectedWithOne) {
 			// TODO: Need to use false here, otherwise base.UpdateTransform uses RigidBody
 			// 		 for the translation & rotation, which somehow gets messed up when
 			//		 scaling
 			base.UpdateTransform(false);
-			Log("position before: " + transform.position);
+			//Log("position before: " + transform.position);
 		}
-		if(isScaling || (isSelected && useOnlyMouse)) {
+		if(this.isSelected || (this.isSelectedWithOne && useOnlyMouse)) {
 			float scale = this.GetCurrentScale();
 			if(scale > 0) {
 				Log("Scaling with " + scale);
@@ -72,7 +78,7 @@ public class ScalableSelectable : RUISSelectable {
 			distance = selector_.transform.position.magnitude;
 		else
 			distance = (selector_.transform.position - scalerSelector.transform.position).magnitude;
-		Log("distance: " + distance);
+		//Log("distance: " + distance);
 		return distance;
 	}
 	

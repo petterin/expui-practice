@@ -238,9 +238,9 @@ public class RUISSelectable : MonoBehaviour {
                 break;
             case RUISWandSelector.SelectionGrabType.DoNotGrab:
                 break;
-        }
-
-        if (rigidbody && safePhysics)
+		}
+		
+		if (rigidbody && safePhysics)
         {
             rigidbody.MovePosition(newPosition);
             rigidbody.MoveRotation(newRotation);
