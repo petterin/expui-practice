@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 public class ScalableSelectable : RUISSelectable {
-	new private RUISWandSelector selector_;
+	private RUISWandSelector selector_;
 	private RUISWandSelector scalerSelector;
 	private float originalDistanceBetweenSelectors;
 	private Vector3 originalScale;
@@ -54,8 +54,7 @@ public class ScalableSelectable : RUISSelectable {
 			if(useOnlyMouse)
 				scale = (GetDistanceBetweenSelectors() - 5) * 10;
 			else
-				scale = (GetDistanceBetweenSelectors() - originalDistanceBetweenSelectors) / 
-					originalDistanceBetweenSelectors;
+				scale = GetDistanceBetweenSelectors() / originalDistanceBetweenSelectors;
 			if(scale > 0) {
 				Log("Scaling with " + scale);
 				transform.localScale = originalScale * scale;
