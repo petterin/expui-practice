@@ -118,6 +118,11 @@ public class RUISSelectable : MonoBehaviour {
         UpdateTransform(true);
         transformHasBeenUpdated = true;
     }
+    
+    public virtual bool IsSelectable()
+    {
+    	return !this.isSelected;
+    }
 
     public virtual void OnSelection(RUISWandSelector selector)
     {

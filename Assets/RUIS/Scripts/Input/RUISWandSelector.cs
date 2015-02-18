@@ -114,7 +114,7 @@ public class RUISWandSelector : MonoBehaviour {
                     selectableObject = selectionGameObject.GetComponent<RUISSelectable>();
                 }
 
-                if (selectableObject /*&& !selectableObject.isSelected*/)
+                if (selectableObject && selectableObject.IsSelectable())
                 {
                     if (selectableObject != highlightedObject)
                     {
