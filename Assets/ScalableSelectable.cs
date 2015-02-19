@@ -25,12 +25,16 @@ public class ScalableSelectable : RUISSelectable {
 		Log("ScalableSelectable#OnSelection called for " + selector);
 		if(!this.isSelected) {
 			this.selector_ = selector;
+			// Only call this on first selection so the base class' selector does not change
+			// when multi-selecting
+			base.OnSelection(selector);
 		} else {
 			Log("Setting scaler selection and the original distance between the selectors");
 			this.scalerSelector = selector;
 			this.originalDistanceBetweenSelectors = GetDistanceBetweenSelectors();
+			// Must update transform here?
+			this.UpdateTransform(false);
 		}
-		base.OnSelection(selector);
 	}
 	
 	// This clears everything since there is no easy way to tell which selection ended
