@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BabyAudioPauser : MonoBehaviour {
+public class BabyCollisionAudioPlayer : MonoBehaviour {
 
 	public GameObject objectToTrigger1;
 	public GameObject objectToTrigger2;
