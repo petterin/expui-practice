@@ -2262,6 +2262,7 @@ GameObject:
   - 65: {fileID: 381471171}
   - 82: {fileID: 381471170}
   - 114: {fileID: 381471169}
+  - 114: {fileID: 381471172}
   m_Layer: 0
   m_Name: eatCompletedTrigger
   m_TagString: Untagged
@@ -2367,6 +2368,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &381471172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381471167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f733843b144cd4b10a0db96fd1f34cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToAnimate1: {fileID: 946475600}
+  objectToAnimate2: {fileID: 608859055}
+  timesToAnimate: 1
 --- !u!1 &392716196
 GameObject:
   m_ObjectHideFlags: 0
@@ -3662,7 +3677,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAngle: 10
   minAngle: -20
-  rotationStep: -20
+  rotationStep: -45
+  timesToRepeat: 0
+  playing: 0
 --- !u!1 &609193448
 GameObject:
   m_ObjectHideFlags: 0
@@ -4901,7 +4918,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAngle: 20
   minAngle: -10
-  rotationStep: 20
+  rotationStep: 45
+  timesToRepeat: 0
+  playing: 0
 --- !u!1 &961902268
 GameObject:
   m_ObjectHideFlags: 0
